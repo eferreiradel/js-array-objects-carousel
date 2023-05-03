@@ -1,0 +1,17 @@
+* {
+  border: 1px solid black;
+}
+main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+img {
+  width: 100%;
+}
+
+#currentImgDisplay {
+  object-fit: cover;
+  object-position: center;
+}
