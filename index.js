@@ -1,5 +1,3 @@
-console.log("check -- ok");
-
 const images = [
   {
     image: "./img/img.01.jpg",
@@ -28,8 +26,50 @@ const images = [
   },
 ];
 
-const carousel = document.querySelector("#currentImgDisplay");
+//funzione che genera le immagini nel carrosello
+genCarouselImages();
+generateMainImage();
+function genCarouselImages() {
+  for (counter = 0; counter < images.length; counter++) {
+    let carouselItem = document.createElement("div");
+    carouselItem.classList.add("carousel--item");
 
-const img = document.createElement("img");
-img.setAttribute("src", images[0].image);
-carousel.appendChild(img);
+    let carouselImg = document.createElement("img");
+    carouselImg.classList.add("img--setUp");
+    carouselImg.setAttribute("src", images[counter].image);
+
+    carouselContainer.appendChild(carouselItem);
+    carouselItem.appendChild(carouselImg);
+  }
+}
+function generateMainImage() {
+  let mainImg = document.createElement("img");
+  mainImg.setAttribute("src", images[0].image);
+  mainImg.classList.add("img__setUp--main");
+  document.querySelector("#mainCarousel").appendChild(mainImg);
+}
+
+//hoover degli elementi del carosello
+document.querySelectorAll(".img--setUp").forEach((item) => {
+  item.addEventListener("mouseenter", () => {
+    mainImg = document.querySelector(".img__setUp--main");
+    mainImg.setAttribute("src", item.getAttribute("src"));
+    item.classList.add("carousel__item--active");
+  });
+  item.addEventListener("mouseleave", () => {
+    item.classList.remove("carousel__item--active");
+  });
+});
+
+//bottone autoplay
+document.querySelector("#btnAutoPlay").addEventListener("click", () => {
+  let counter = 0;
+  setInterval(() => {
+    mainImg = document.querySelector(".img__setUp--main");
+    mainImg.setAttribute("src", images[counter++].image);
+    console.log(counter);
+    if (counter >= images.length) {
+      counter = 0;
+    }
+  }, 3000);
+});
