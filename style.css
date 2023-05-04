@@ -14,32 +14,36 @@
   transition: 0.1s ease-in;
 }
 
+body {
+  background-color: black;
+}
+
+img {
+  display: block;
+}
+
 .img__setUp--main {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border: 2px solid black;
 }
 
 .carousel--item {
   background-position: center;
   background-size: cover;
   height: calc(100% / 5);
-  border: 2px solid black;
 }
 
 .carousel__item--active {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: 2px solid white;
+  border: 3px solid white;
   transform: scale(1.1);
 }
 
 #mainCarousel {
-  border: 2px solid black;
   height: 20em;
 }
 
 #carouselContainer {
-  border: 2px solid black;
   height: 20em;
 }
