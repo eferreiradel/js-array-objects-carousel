@@ -1,17 +1,39 @@
 * {
-  border: 1px solid black;
-}
-main {
-  display: flex;
-  align-items: center;
-  height: 100vh;
+  /* border: 1px solid black; */
 }
 
-img {
+#wrapper {
+  height: 20em;
+}
+
+.img--setUp {
+  height: 100%;
   width: 100%;
+  object-fit: cover;
+  transition: 0.1s ease-in;
 }
 
-#currentImgDisplay {
+.img__setUp--main {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-  object-position: center;
+}
+
+.carousel--item {
+  background-position: center;
+  background-size: cover;
+  height: calc(100% / 5);
+}
+
+.carousel__item--active {
+  border: 2px solid white;
+  transform: scale(1.1);
+}
+
+#mainCarousel {
+  height: 20em;
+}
+
+#carouselContainer {
+  height: 20em;
 }
